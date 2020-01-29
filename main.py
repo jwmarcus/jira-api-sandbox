@@ -4,8 +4,10 @@ from datetime import datetime
 
 jira_token = os.getenv("JIRA_TOKEN")
 jira_email = os.getenv("JIRA_EMAIL")
+instance_name = "jwmarcus"
 
-base_api = "https://jwmarcus.atlassian.net/rest/api/3"
+
+base_api = f"https://{instance_name}.atlassian.net/rest/api/3"
 base64_token = str(base64.b64encode(f"{jira_email}:{jira_token}".encode()), "utf-8")
 headers = {"Authorization": f"Basic {base64_token}", "Content-Type": "application/json"}
 http = PoolManager()
